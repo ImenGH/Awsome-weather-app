@@ -1,0 +1,75 @@
+.currentWeather {
+  text-align: center;
+  margin-top: 100px;
+}
+.weekWeather {
+  text-align: center;
+  padding-top: 30px;
+}
+.weekWeather :hover {
+  background-color: #fffbef;
+
+  border-radius: 10px;
+}
+.date {
+  text-align: center;
+}
+.fa-circle {
+  font-size: 100px;
+  color: #ff6372;
+}
+.fa-cloud {
+  font-size: 100px;
+  color: #ff6372;
+}
+.fa-cloud-showers-heavy {
+  font-size: 100px;
+  color: #ff6372;
+}
+.fa-snowflake {
+  font-size: 100px;
+  color: #ff6372;
+}
+.precipitation {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.temperature {
+  color: slategrey;
+  font-size: 60px;
+}
+
+.cloudy {
+  width: 60%;
+}
+.sunny {
+  width: 60%;
+}
+
+.iconify {
+  width: 50px;
+  color: #6c63ff;
+}
+
+.box-wrap {
+  border: 1px solid #dfe1e6;
+  max-width: 650px;
+  height: 650px;
+  border-radius: 8px;
+  line-height: 16.8px;
+  padding: 20px 16px 20px 16px;
+  text-align: left;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #fde9e0;
+}
+h1 {
+  font-family: "Noto Sans HK", sans-serif;
+}
+h4 {
+  color: #ff6372;
+}
+h5 {
+  text-decoration: underline;
+}
