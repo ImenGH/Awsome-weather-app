@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revision</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/31b8f47c09.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box-wrap">
+        <form class="form-inline" id="real-city">
+          <div class="form-group mx-sm-3 mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="Enter a city"
+              autofocus="on"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">Search 🔍</button>
+        </form>
+        <br />
+
+        <div class="row currentWeather">
+          <div class="col-4">
+            <div>
+              <h1>Stockholm</h1>
+            </div>
+            <div>
+              <h4 id="visibility">Clear</h4>
+            </div>
+            <br />
+            <div>
+              <span class="temperature" id="temp">17</span>
+              <a href="#" id="celsius">°C</a> |
+              <a href="#" id="fahrenheit">°F</a>
+            </div>
+          </div>
+          <div class="col-4">
+            <i class="fas fa-circle" id="climat"></i>
+          </div>
+          <div class="col-4">
+            <div class="row precipitation">
+              <div class="col-12">
+                <span
+                  class="iconify"
+                  data-icon="wi-humidity"
+                  data-inline="false"
+                ></span>
+                <span id="humidity">84</span> %
+              </div>
+
+              <div class="col-12">
+                <span
+                  class="iconify"
+                  data-icon="bx:bx-wind"
+                  data-inline="false"
+                ></span>
+                <span id="windy">2</span> m/s
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="row date">
+          <div class="col-4">
+            <span id="actual-month"></span>
+            <span id="actual-date"> </span>
+          </div>
+          <div class="col-4">
+            <span id="actual-day"></span>
+          </div>
+          <div class="col-4">
+            <span id="actual-hour"></span>
+          </div>
+        </div>
+
+        <hr />
+        <br />
+
+        <div class="row weekWeather">
+          <div class="col-2">
+            <div class="friday">
+              <h5>Fri</h5>
+
+              <br />
+              <br />
+              <img class="cloudy" src="images/cloudy.svg" alt="cloudy" />
+              <br />
+              <br />
+              <b>26°</b>/28°
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="saturday">
+              <h5>Sat</h5>
+
+              <br />
+              <br />
+              <img class="cloudy" src="images/cloudy.svg" alt="cloudy" />
+              <br />
+              <br />
+              <b>28°</b>/14°
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="sunday">
+              <h5>Sun</h5>
+
+              <br />
+              <br />
+              <img class="sunny" src="images/sunny.svg" alt="sunny" />
+              <br />
+              <br />
+              <b>26°</b>/13°
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="monday">
+              <h5>Mon</h5>
+
+              <br />
+              <br />
+              <img class="cloudy" src="images/cloudy.svg" alt="cloudy" />
+              <br />
+              <br />
+              <b>26°</b>/13°
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="tuesday">
+              <h5>Tue</h5>
+
+              <br />
+              <br />
+              <img class="cloudy" src="images/cloudy.svg" alt="cloudy" />
+              <br />
+              <br />
+              <b>26°</b>/13°
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="wednesday">
+              <h5>Wed</h5>
+              <br />
+              <br />
+
+              <img class="cloudy" src="images/cloudy.svg" alt="cloudy" />
+              <br />
+              <br />
+              <b>26°</b>/14°
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
