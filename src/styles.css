@@ -73,6 +73,6 @@ h4 {
 h5 {
   text-decoration: underline;
 }
-p {
-  text-align: center;
+small {
+  margin-left: 230px;
 }
