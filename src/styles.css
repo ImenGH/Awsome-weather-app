@@ -66,13 +66,19 @@
 }
 h1 {
   font-family: "Noto Sans HK", sans-serif;
+  font-size: 50px;
+  margin-bottom: 0px;
 }
 h4 {
   color: #ff6372;
+  margin-top: 0px;
 }
 h5 {
   text-decoration: underline;
 }
 small {
   margin-left: 230px;
+}
+.github {
+  margin-left: 430px;
 }
