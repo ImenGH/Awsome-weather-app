@@ -50,64 +50,41 @@ let actualCity = "Tunis";
 let h1 = document.querySelector("h1");
 h1.innerHTML = actualCity;
 
+let units = "metric";
+let apiKey = "b016d3139dfb068d018e3bb03da1b5f3";
+let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity}&appid=${apiKey}&units=${units}`;
+
 function showCity(event) {
   event.preventDefault();
   actualCity = document.querySelector("#city");
   //let h1 = document.querySelector("h1");
   h1.innerHTML = actualCity.value;
-  console.log("call api" + actualCity.value);
+
   urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity.value}&appid=${apiKey}&units=${units}`;
   axios.get(urlApi).then(showWeather);
 }
 
-let form = document.querySelector("#real-city");
-form.addEventListener("submit", showCity);
-
-/*
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let actualTempSelector = document.querySelector("#temp");
-  let actualTemp = actualTempSelector.innerHTML;
-  let easyTemp = Math.round((actualTemp * 9) / 5 + 32);
-  actualTempSelector.innerHTML = easyTemp;
-}
-let actualFahrenheit = document.querySelector("#fahrenheit");
-actualFahrenheit.addEventListener("click", showFahrenheit);
-
-function showCelsius(event) {
-  event.preventDefault();
-  let actualTempSelector = document.querySelector("#temp");
-  actualTempSelector.innerHTML = celsiusTemperature;
-}
-let actualCelsius = document.querySelector("#celsius");
-actualCelsius.addEventListener("click", showCelsius); */
-
-let units = "metric";
-let apiKey = "b016d3139dfb068d018e3bb03da1b5f3";
-console.log(actualCity);
-let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity}&appid=${apiKey}&units=${units}`;
 let oldWeatherIconClass = "fa-circle";
 let temperature;
 let celsiusTemperature;
 
-function showWeather(response) {
-  console.log(response);
+let form = document.querySelector("#real-city");
+form.addEventListener("submit", showCity);
 
+function showWeather(response) {
   let wind = Math.round(response.data.wind.speed);
-  console.log(`${wind}`);
   let windValue = document.querySelector("#windy");
   windValue.innerHTML = `${wind}`;
+
   let humidity = Math.round(response.data.main.humidity);
-  console.log(`${humidity}`);
   let humidityValue = document.querySelector("#humidity");
   humidityValue.innerHTML = `${humidity}`;
+
   celsiusTemperature = Math.round(response.data.main.temp);
   temperature = document.querySelector("#temp");
   temperature.innerHTML = `${celsiusTemperature}`;
 
   let description = response.data.weather[0].main;
-  console.log(description);
   let visibility = document.querySelector("#visibility");
   let climatIcon = document.querySelector("#climat");
   let newWeatherIconClass;
@@ -134,14 +111,3 @@ function showWeather(response) {
     oldWeatherIconClass = newWeatherIconClass;
   }
 }
-axios.get(urlApi).then(showWeather);
-
-/*function showFahrenheit(event) {
-  event.preventDefault();
-  let actualTempSelector = document.querySelector("#temp");
-  let actualTemp = actualTempSelector.innerHTML;
-  let easyTemp = Math.round((actualTemp * 9) / 5 + 32);
-  actualTempSelector.innerHTML = easyTemp;
-}
-let actualFahrenheit = document.querySelector("#fahrenheit");
-actualFahrenheit.addEventListener("click", showFahrenheit);*/
