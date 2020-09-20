@@ -111,8 +111,10 @@ function showWeather(response) {
 
 function showFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature = document.querySelector("#temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature.innerHTML = `${fahrenheitTemp}`;
 }
 
@@ -121,7 +123,8 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 function showCelsius(event) {
   event.preventDefault();
-
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   temperature = document.querySelector("#temp");
   temperature.innerHTML = `${celsiusTemperature}`;
 }
