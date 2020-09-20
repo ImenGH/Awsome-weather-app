@@ -46,21 +46,17 @@ if (min < 10) {
 let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
-let actualCity = "Stockholm";
-let h1 = document.querySelector("h1");
-h1.innerHTML = actualCity;
-
-let units = "metric";
-let apiKey = "b016d3139dfb068d018e3bb03da1b5f3";
-let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity}&appid=${apiKey}&units=${units}`;
+function search(city) {
+  let apiKey = "b016d3139dfb068d018e3bb03da1b5f3";
+  let units = "metric";
+  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(urlApi).then(showWeather);
+}
 
 function showCity(event) {
   event.preventDefault();
-  actualCity = document.querySelector("#city");
-  h1.innerHTML = actualCity.value;
-
-  urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity.value}&appid=${apiKey}&units=${units}`;
-  axios.get(urlApi).then(showWeather);
+  let actualCity = document.querySelector("#city-input");
+  search(actualCity.value);
 }
 let form = document.querySelector("#real-city");
 form.addEventListener("submit", showCity);
@@ -70,6 +66,9 @@ let temperature;
 let celsiusTemperature;
 
 function showWeather(response) {
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.name;
+
   let wind = Math.round(response.data.wind.speed);
   let windValue = document.querySelector("#windy");
   windValue.innerHTML = `${wind}`;
@@ -129,3 +128,5 @@ function showCelsius(event) {
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
+
+search("Tunis");

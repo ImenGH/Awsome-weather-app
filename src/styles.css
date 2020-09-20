@@ -83,3 +83,10 @@ small {
 .github {
   margin-left: 430px;
 }
+.active {
+  color: slategrey;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}

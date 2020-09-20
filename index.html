@@ -34,7 +34,7 @@
                 type="search"
                 placeholder="Enter a city.."
                 class="form-control"
-                id="city"
+                id="city-input"
                 autocomplete="off"
                 autofocus="on"
               />
@@ -52,12 +52,12 @@
         <div class="row currentWeather">
           <div class="col-4">
             <div class="clearfix">
-              <h1></h1>
-              <h4 id="visibility">Clear</h4>
+              <h1 id="city"></h1>
+              <h4 id="visibility"></h4>
               <br />
               <div>
                 <span class="temperature" id="temp"></span>
-                <a href="#" id="celsius">°C</a> |
+                <a href="#" id="celsius" class="active">°C</a> |
                 <a href="#" id="fahrenheit">°F</a>
               </div>
             </div>
@@ -74,7 +74,7 @@
                   data-icon="wi-humidity"
                   data-inline="false"
                 ></span>
-                <span id="humidity">84</span> %
+                <span id="humidity"></span> %
               </div>
 
               <div class="col-12">
@@ -83,7 +83,7 @@
                   data-icon="bx:bx-wind"
                   data-inline="false"
                 ></span>
-                <span id="windy">2</span> m/s
+                <span id="windy"></span> m/s
               </div>
             </div>
           </div>
