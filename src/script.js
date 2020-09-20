@@ -46,7 +46,7 @@ if (min < 10) {
 let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
-let actualCity = "Tunis";
+let actualCity = "Stockholm";
 let h1 = document.querySelector("h1");
 h1.innerHTML = actualCity;
 
@@ -57,19 +57,17 @@ let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity}&ap
 function showCity(event) {
   event.preventDefault();
   actualCity = document.querySelector("#city");
-  //let h1 = document.querySelector("h1");
   h1.innerHTML = actualCity.value;
 
   urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${actualCity.value}&appid=${apiKey}&units=${units}`;
   axios.get(urlApi).then(showWeather);
 }
+let form = document.querySelector("#real-city");
+form.addEventListener("submit", showCity);
 
 let oldWeatherIconClass = "fa-circle";
 let temperature;
 let celsiusTemperature;
-
-let form = document.querySelector("#real-city");
-form.addEventListener("submit", showCity);
 
 function showWeather(response) {
   let wind = Math.round(response.data.wind.speed);
@@ -111,3 +109,23 @@ function showWeather(response) {
     oldWeatherIconClass = newWeatherIconClass;
   }
 }
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperature = document.querySelector("#temp");
+  temperature.innerHTML = `${fahrenheitTemp}`;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
+  event.preventDefault();
+
+  temperature = document.querySelector("#temp");
+  temperature.innerHTML = `${celsiusTemperature}`;
+}
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
