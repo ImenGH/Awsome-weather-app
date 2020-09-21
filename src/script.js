@@ -1,4 +1,4 @@
-let now = new Date();
+let date = new Date();
 let months = [
   "January",
   "February",
@@ -13,11 +13,11 @@ let months = [
   "November",
   "December",
 ];
-let month = months[now.getMonth()];
-let actualMonth = document.querySelector("#actual-month");
-actualMonth.innerHTML = month;
 
-let days = [
+let actualMonth = document.querySelector("#actual-month");
+actualMonth.innerHTML = months[date.getMonth()];
+
+let daysList = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -27,19 +27,27 @@ let days = [
   "Saturday",
 ];
 
-let day = days[now.getDay()];
-let actualDay = document.querySelector("#actual-day");
-actualDay.innerHTML = day;
+function setDate(selector) {
+  date.setDate(date.getDate() + 1);
+  console.log(selector);
+  selector.innerHTML = daysList[date.getDay()];
+}
 
-let date = now.getDate();
+let today = document.querySelector("#today");
+today.innerHTML = daysList[date.getDay()];
+
+for (let i of ["one", "two", "three", "four"]) {
+  setDate(document.querySelector("#day-" + i));
+}
+
 let actualDate = document.querySelector("#actual-date");
-actualDate.innerHTML = date;
+actualDate.innerHTML = date.getDate();
 
-let hour = now.getHours();
+let hour = date.getHours();
 if (hour < 10) {
   hour = `0${hour}`;
 }
-let min = now.getMinutes();
+let min = date.getMinutes();
 if (min < 10) {
   min = `0${min}`;
 }
@@ -47,6 +55,7 @@ let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
 function showForecast(response) {
+  console.log(response);
   let firstDay = document.querySelector("#day-1");
   firstDay.innerHTML = Math.round(response.data.list[6].main.temp);
   let firstNight = document.querySelector("#night-1");
