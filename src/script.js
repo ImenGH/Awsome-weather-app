@@ -46,11 +46,18 @@ if (min < 10) {
 let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
+function showForecast(response) {
+  console.log(response);
+}
+
 function search(city) {
   let apiKey = "b016d3139dfb068d018e3bb03da1b5f3";
   let units = "metric";
   let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(urlApi).then(showWeather);
+
+  urlApi = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(urlApi).then(showForecast);
 }
 
 function showCity(event) {
