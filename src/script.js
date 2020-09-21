@@ -47,7 +47,25 @@ let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
 function showForecast(response) {
-  console.log(response);
+  let firstDay = document.querySelector("#day-1");
+  firstDay.innerHTML = Math.round(response.data.list[6].main.temp);
+  let firstNight = document.querySelector("#night-1");
+  firstNight.innerHTML = Math.round(response.data.list[9].main.temp);
+
+  let secondDay = document.querySelector("#day-2");
+  secondDay.innerHTML = Math.round(response.data.list[14].main.temp);
+  let secondNight = document.querySelector("#night-2");
+  secondNight.innerHTML = Math.round(response.data.list[17].main.temp);
+
+  let thirdDay = document.querySelector("#day-3");
+  thirdDay.innerHTML = Math.round(response.data.list[22].main.temp);
+  let thirdNight = document.querySelector("#night-3");
+  thirdNight.innerHTML = Math.round(response.data.list[25].main.temp);
+
+  let fourthDay = document.querySelector("#day-4");
+  fourthDay.innerHTML = Math.round(response.data.list[30].main.temp);
+  let fourthNight = document.querySelector("#night-4");
+  fourthNight.innerHTML = Math.round(response.data.list[33].main.temp);
 }
 
 function search(city) {
