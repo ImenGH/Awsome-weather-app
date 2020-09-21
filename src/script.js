@@ -29,9 +29,11 @@ let daysList = [
 
 function setDate(selector) {
   date.setDate(date.getDate() + 1);
-  console.log(selector);
+
   selector.innerHTML = daysList[date.getDay()];
 }
+let actualDate = document.querySelector("#actual-date");
+actualDate.innerHTML = date.getDate();
 
 let today = document.querySelector("#today");
 today.innerHTML = daysList[date.getDay()];
@@ -39,9 +41,6 @@ today.innerHTML = daysList[date.getDay()];
 for (let i of ["one", "two", "three", "four"]) {
   setDate(document.querySelector("#day-" + i));
 }
-
-let actualDate = document.querySelector("#actual-date");
-actualDate.innerHTML = date.getDate();
 
 let hour = date.getHours();
 if (hour < 10) {
@@ -56,25 +55,25 @@ actualHour.innerHTML = `${hour} : ${min}`;
 
 function showForecast(response) {
   console.log(response);
-  let firstDay = document.querySelector("#day-1");
-  firstDay.innerHTML = Math.round(response.data.list[6].main.temp);
-  let firstNight = document.querySelector("#night-1");
-  firstNight.innerHTML = Math.round(response.data.list[9].main.temp);
+  let firstDay = document.querySelector("#max-1");
+  firstDay.innerHTML = Math.round(response.data.list[6].main.temp_max);
+  let firstNight = document.querySelector("#min-1");
+  firstNight.innerHTML = Math.round(response.data.list[9].main.temp_min);
 
-  let secondDay = document.querySelector("#day-2");
-  secondDay.innerHTML = Math.round(response.data.list[14].main.temp);
-  let secondNight = document.querySelector("#night-2");
-  secondNight.innerHTML = Math.round(response.data.list[17].main.temp);
+  let secondDay = document.querySelector("#max-2");
+  secondDay.innerHTML = Math.round(response.data.list[14].main.temp_max);
+  let secondNight = document.querySelector("#min-2");
+  secondNight.innerHTML = Math.round(response.data.list[17].main.temp_min);
 
-  let thirdDay = document.querySelector("#day-3");
-  thirdDay.innerHTML = Math.round(response.data.list[22].main.temp);
-  let thirdNight = document.querySelector("#night-3");
-  thirdNight.innerHTML = Math.round(response.data.list[25].main.temp);
+  let thirdDay = document.querySelector("#max-3");
+  thirdDay.innerHTML = Math.round(response.data.list[22].main.temp_max);
+  let thirdNight = document.querySelector("#min-3");
+  thirdNight.innerHTML = Math.round(response.data.list[25].main.temp_min);
 
-  let fourthDay = document.querySelector("#day-4");
-  fourthDay.innerHTML = Math.round(response.data.list[30].main.temp);
-  let fourthNight = document.querySelector("#night-4");
-  fourthNight.innerHTML = Math.round(response.data.list[33].main.temp);
+  let fourthDay = document.querySelector("#max-4");
+  fourthDay.innerHTML = Math.round(response.data.list[30].main.temp_max);
+  let fourthNight = document.querySelector("#min-4");
+  fourthNight.innerHTML = Math.round(response.data.list[33].main.temp_min);
 }
 
 function search(city) {
@@ -103,17 +102,14 @@ function showWeather(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
 
-  let wind = Math.round(response.data.wind.speed);
   let windValue = document.querySelector("#windy");
-  windValue.innerHTML = `${wind}`;
+  windValue.innerHTML = Math.round(response.data.wind.speed);
 
-  let humidity = Math.round(response.data.main.humidity);
   let humidityValue = document.querySelector("#humidity");
-  humidityValue.innerHTML = `${humidity}`;
+  humidityValue.innerHTML = Math.round(response.data.main.humidity);
 
-  celsiusTemperature = Math.round(response.data.main.temp);
   temperature = document.querySelector("#temp");
-  temperature.innerHTML = `${celsiusTemperature}`;
+  temperature.innerHTML = Math.round(response.data.main.temp);
 
   let description = response.data.weather[0].main;
   let visibility = document.querySelector("#visibility");
