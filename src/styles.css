@@ -4,16 +4,17 @@
 }
 .weekWeather {
   text-align: center;
-  margin-top: 20px;
-  height: 220px;
+  margin-top: 10px;
+  height: 180px;
 }
 .weekWeather :hover {
-  background-color: #fffbef;
+  background-color: #dddddd;
   border-radius: 10px;
   padding-top: 10px;
 }
 .date {
   text-align: center;
+  margin-top: 30px;
 }
 .fa-circle {
   font-size: 100px;
