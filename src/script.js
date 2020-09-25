@@ -53,6 +53,17 @@ if (min < 10) {
 let actualHour = document.querySelector("#actual-hour");
 actualHour.innerHTML = `${hour} : ${min}`;
 
+let weatherImageMap = {
+  Clear: "images/sunny.svg",
+  Clouds: "images/cloudy.svg",
+  Snow: "images/snow.svg",
+  Rain: "images/rain.svg",
+};
+
+function setWeatherImage(selector, weatherDetail) {
+  selector.src = weatherImageMap[weatherDetail];
+}
+
 function showForecast(response) {
   console.log(response);
   let firstDay = document.querySelector("#max-1");
@@ -74,6 +85,21 @@ function showForecast(response) {
   fourthDay.innerHTML = Math.round(response.data.list[30].main.temp_max);
   let fourthNight = document.querySelector("#min-4");
   fourthNight.innerHTML = Math.round(response.data.list[33].main.temp_min);
+
+  let firstIcon = document.querySelector("#img-day1");
+  let secondIcon = document.querySelector("#img-day2");
+  let thirdIcon = document.querySelector("#img-day3");
+  let fourthIcon = document.querySelector("#img-day4");
+  console.log(firstIcon);
+  let weatherDetail1 = response.data.list[6].weather[0].main;
+  let weatherDetail2 = response.data.list[14].weather[0].main;
+  let weatherDetail3 = response.data.list[22].weather[0].main;
+  let weatherDetail4 = response.data.list[30].weather[0].main;
+  console.log(weatherDetail1);
+  setWeatherImage(firstIcon, weatherDetail1);
+  setWeatherImage(secondIcon, weatherDetail2);
+  setWeatherImage(thirdIcon, weatherDetail3);
+  setWeatherImage(fourthIcon, weatherDetail4);
 }
 
 function search(city) {
