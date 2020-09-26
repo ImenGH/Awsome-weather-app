@@ -1,3 +1,9 @@
+body {
+  background-image: url("../images/weather.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .currentWeather {
   text-align: center;
   margin-top: 100px;
@@ -80,10 +86,19 @@ h5 {
   margin-bottom: 20px;
 }
 small {
-  margin-left: 230px;
+  text-align: center;
+
+  color: #ff6372;
+}
+#name {
+  color: #ff6372;
+  text-align: center;
+}
+#source {
+  color: #ff6372;
+  text-align: center;
 }
 .github {
-  margin-left: 430px;
 }
 .active {
   color: slategrey;
