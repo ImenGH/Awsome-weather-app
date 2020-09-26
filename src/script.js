@@ -188,4 +188,4 @@ function showCelsius(event) {
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
-search("Tunis");
+search("Stockholm");
