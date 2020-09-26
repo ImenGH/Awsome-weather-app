@@ -85,21 +85,17 @@ h4 {
 h5 {
   margin-bottom: 20px;
 }
-small {
-  text-align: center;
-
-  color: #ff6372;
+.footer {
+  margin-left: 500px;
 }
 #name {
   color: #ff6372;
-  text-align: center;
 }
 #source {
   color: #ff6372;
-  text-align: center;
+  margin-left: 525px;
 }
-.github {
-}
+
 .active {
   color: slategrey;
   cursor: default;
