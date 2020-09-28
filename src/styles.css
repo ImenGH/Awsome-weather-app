@@ -83,7 +83,7 @@ h4 {
   margin-top: 0px;
 }
 h5 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer {
   margin-left: 500px;
@@ -104,6 +104,6 @@ h5 {
   text-decoration: none;
 }
 .weather-icon {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

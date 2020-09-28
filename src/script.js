@@ -134,8 +134,10 @@ function showWeather(response) {
   let humidityValue = document.querySelector("#humidity");
   humidityValue.innerHTML = Math.round(response.data.main.humidity);
 
+  celsiusTemperature = response.data.main.temp;
+
   temperature = document.querySelector("#temp");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.innerHTML = Math.round(celsiusTemperature);
 
   let description = response.data.weather[0].main;
   let visibility = document.querySelector("#visibility");
@@ -171,7 +173,7 @@ function showFahrenheit(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheitTemp = Math.round((celsiusTemperature * 9) / 5 + 32);
-  temperature.innerHTML = `${fahrenheitTemp}`;
+  temperature.innerHTML = fahrenheitTemp;
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
@@ -182,10 +184,10 @@ function showCelsius(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   temperature = document.querySelector("#temp");
-  temperature.innerHTML = `${celsiusTemperature}`;
+  temperature.innerHTML = Math.round(celsiusTemperature);
 }
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
-search("Stockholm");
+search("Tunis");
